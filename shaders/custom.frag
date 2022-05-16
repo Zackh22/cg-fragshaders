@@ -11,5 +11,7 @@ uniform sampler2D image;
 out vec4 FragColor;
 
 void main() {
-    FragColor = texture(image, texcoord);
+    vec4 LuminanceRGB = texture(image, texcoord);
+    LuminanceRGB = LuminanceRGB.gbra;
+    FragColor = vec4(LuminanceRGB.rgb, 1.0);
 }
